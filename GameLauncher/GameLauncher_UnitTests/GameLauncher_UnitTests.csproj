@@ -6,7 +6,7 @@
     <ProjectGuid>{6EEE709C-CC7E-41BC-B493-BEB62E356835}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameLauncher_UnitTests</RootNamespace>
+    <RootNamespace>GameLauncher</RootNamespace>
     <AssemblyName>GameLauncher_UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -51,7 +51,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameLauncherTests.cs" />
+    <Compile Include="Spiel_HinzufugenTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameLauncher\GameLauncher.csproj">
+      <Project>{5b9b17af-c548-4b2f-a57d-330766572cfe}</Project>
+      <Name>GameLauncher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
