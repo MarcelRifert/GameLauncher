@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GameLauncher;
 
 namespace GameLauncher
 {
@@ -23,7 +22,7 @@ namespace GameLauncher
         {
             GameController GC = new GameController();
 
-            GC.Spiel_Hinzufügen("League of Legends");
+            GC.Spiel_Hinzufügen("n.A.");
 
             Assert.Fail();
         }

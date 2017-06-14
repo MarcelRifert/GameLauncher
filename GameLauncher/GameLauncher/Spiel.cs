@@ -11,15 +11,20 @@ namespace GameLauncher
         private string _Titel;
         private DateTime _InstallationsDatum;
         public DateTime Zuletzt_gespielt;
-        public string Pfad;
-        private string _Kategorien;
+        private string _Pfad;
+        private string[] _Kategorien;
         private string _Publisher;
         private int _USK;
-        private bool _Favorit;
+        public bool Favorit;
 
-        public Spiel()
+        public Spiel(string Titel, DateTime InstallationsDatum, string Pfad, string[] Kategorien, string Publisher, int USK)
         {
-
+            _Titel = Titel;
+            _InstallationsDatum = InstallationsDatum;
+            _Pfad = Pfad;
+            _Kategorien = Kategorien;
+            _Publisher = Publisher;
+            _USK = USK;
         }
 
         #region Getter/Setter
@@ -27,9 +32,22 @@ namespace GameLauncher
         {
             get { return _Titel; }
         }
-        public string Kategorien
+        public string Pfad
         {
-
+            get { return _Pfad; }
+            set { _Pfad = value; }
+        }
+        public string[] Kategorien
+        {
+            get { return _Kategorien; }
+        }
+        public string Publisher
+        {
+            get { return _Publisher; }
+        }
+        public int USK
+        {
+            get { return _USK; }
         }
         #endregion
     }

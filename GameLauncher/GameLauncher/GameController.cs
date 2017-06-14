@@ -8,7 +8,17 @@ namespace GameLauncher
     class GameController
     {
         public List<Spiel> Spiele = new List<Spiel>();
-        public  void Spiel_Hinzufügen(string p)
+        internal  void Spiel_Hinzufügen(string p)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Spiel_Entfernen(Spiel testSpiel)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Spiel_Starten(Spiel testSpiel)
         {
             throw new NotImplementedException();
         }
