@@ -12,13 +12,11 @@ namespace GameLauncher
         public void Spiel_Starten_Test()
         {
             GameController GC = new GameController();
-            List<string> TestKategorien = new List<string>();
-            TestKategorien.Add("Action");
-            Spiel TestSpiel = new Spiel("Dark Souls", new DateTime(2017, 06, 14), @"DarkSouls.exe", TestKategorien, "From Software", 18);
+            Spiel TestSpiel = new Spiel("League of Legends", new DateTime(2017, 06, 14), @"E:\Riot Games\League of Legends\LeagueClient.exe", "Action", "Riot Games", 18);
             GC.Spiele.Add(TestSpiel);
 
             GC.Spiel_Starten(TestSpiel);
-            Process[] process = Process.GetProcessesByName("Dark Souls");
+            Process[] process = Process.GetProcessesByName("LeagueClient");
 
             Assert.AreNotEqual(process.Length, 0);
         }

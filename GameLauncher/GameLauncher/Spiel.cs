@@ -12,12 +12,12 @@ namespace GameLauncher
         private DateTime _InstallationsDatum;
         public DateTime Zuletzt_gespielt;
         private string _Pfad;
-        private List<string> _Kategorien;
+        private string _Kategorien;
         private string _Publisher;
         private int _USK;
         public bool Favorit;
 
-        public Spiel(string Titel, DateTime InstallationsDatum, string Pfad, List<string> Kategorien, string Publisher, int USK)
+        public Spiel(string Titel, DateTime InstallationsDatum, string Pfad, string Kategorien, string Publisher, int USK)
         {
             _Titel = Titel;
             _InstallationsDatum = InstallationsDatum;
@@ -37,7 +37,7 @@ namespace GameLauncher
             get { return _Pfad; }
             set { _Pfad = value; }
         }
-        public List<string> Kategorien
+        public string Kategorien
         {
             get { return _Kategorien; }
         }

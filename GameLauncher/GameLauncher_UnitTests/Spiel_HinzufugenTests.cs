@@ -11,10 +11,8 @@ namespace GameLauncher
         public void Spiel_Hinzufügen_Test()
         {
             GameController GC = new GameController();
-            List<string> TestKategorien = new List<string>();
-            TestKategorien.Add("Action");
 
-            GC.Spiel_Hinzufügen("Dark Souls 3", TestKategorien, 18);
+            GC.Spiel_Hinzufügen(@"E:\Riot Games\League of Legends\LeagueClient.exe", "Action", 18);
 
             Assert.AreEqual(GC.Spiele.Count, 1);
         }
@@ -24,10 +22,8 @@ namespace GameLauncher
         public void Nicht_Installiertes_Spiel_Hinzufügen()
         {
             GameController GC = new GameController();
-            List<string> TestKategorien = new List<string>();
-            TestKategorien.Add("Action");
 
-            GC.Spiel_Hinzufügen("n.A.", TestKategorien, 0);
+            GC.Spiel_Hinzufügen("n.A.", "Action", 0);
 
             Assert.Fail();
         }
