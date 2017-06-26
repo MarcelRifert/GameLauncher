@@ -20,7 +20,10 @@ namespace Game_Launcher
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             // Create icon.
-            Icon newIcon = new Icon(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe");
+            Image i = Image.FromFile(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe");
+            Bitmap bm = new Bitmap(i);
+            IntPtr Hicon = bm.GetHicon();
+            Icon newIcon = Icon.FromHandle(Hicon);
 
             // Create rectangle for icon.
             Rectangle rect = new Rectangle(100, 100, 200, 200);

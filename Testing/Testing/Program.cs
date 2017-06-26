@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Management;
 
 namespace Testing
 {
@@ -12,7 +13,8 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            Spiel_starten("Firefox");
+            //Spiel_starten("Firefox");
+            Spiele();
             Console.ReadKey();
         }
         public static void Spiel_starten(string Spiel)
@@ -34,6 +36,15 @@ namespace Testing
                         }
                     }
                 }
+            }
+        }
+
+        public static void Spiele()
+        {
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_Product");
+            foreach (ManagementObject mo in mos.Get())
+            {
+                Console.WriteLine(mo["Name"]);
             }
         }
     }
