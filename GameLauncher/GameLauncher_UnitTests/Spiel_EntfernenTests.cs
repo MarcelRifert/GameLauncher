@@ -10,13 +10,22 @@ namespace GameLauncher
         [TestMethod]
         public void Spiel_Entfernen_Test()
         {
-            GameController GC = new GameController();
             Spiel TestSpiel = new Spiel("Dark Souls", new DateTime(2017, 06, 14), @"DarkSouls.exe", "Action", "From Software", 18);
-            GC.Spiele.Add(TestSpiel);
+            GameController.Spiele.Add(TestSpiel);
 
-            GC.Spiel_Entfernen(TestSpiel);
+            GameController.Spiel_Entfernen(TestSpiel);
 
-            Assert.AreEqual(GC.Spiele.Count, 0);
+            Assert.AreEqual(GameController.Spiele.Count, 0);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Spiel_Entfernen_Welches_Nicht_Hinzugeüfgt_wurde_Test()
+        {
+            Spiel TestSpiel = new Spiel("Dark Souls", new DateTime(2017, 06, 14), @"DarkSouls.exe", "Action", "From Software", 18);
+
+            GameController.Spiel_Entfernen(TestSpiel);
+
+            Assert.Fail();
         }
     }
 }

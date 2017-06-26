@@ -8,16 +8,23 @@ using System.IO;
 
 namespace GameLauncher
 {
-    class GameController
+    static class GameController
     {
-        public List<Spiel> Spiele = new List<Spiel>();
+        public static List<Spiel> Spiele = new List<Spiel>();
 
-        internal void Spiel_Entfernen(Spiel Spiel)
+        internal static void Spiel_Entfernen(Spiel Spiel)
         {
-            Spiele.Remove(Spiel);
+            if (!Spiele.Contains(Spiel))
+            {
+                throw new ArgumentOutOfRangeException("Das Spiel befindet sich nicht in der Verwaltung!");
+            }
+            else
+            {
+                Spiele.Remove(Spiel);
+            }
         }
 
-        internal void Spiel_Hinzufügen(string Pfad, string Genres, int USK)
+        internal static void Spiel_Hinzufügen(string Pfad, string Genres, int USK)
         {
             if (!(File.Exists(Pfad)))
             {
@@ -64,9 +71,20 @@ namespace GameLauncher
             }
         }
 
-        internal void Spiel_Starten(Spiel Spiel)
+        internal static void Spiel_Starten(Spiel Spiel)
         {
-            Process.Start(Spiel.Pfad);
+            if (!Spiele.Contains(Spiel))
+            {
+                throw new ArgumentOutOfRangeException("Das Spiel befindet sich nicht in der Verwaltung!");
+            }
+            else if (!File.Exists(Spiel.Pfad))
+            {
+                throw new ArgumentOutOfRangeException("Die angegebene Datei existiert nicht!");
+            }
+            else
+            {
+                Process.Start(Spiel.Pfad);
+            }
         }
     }
 }

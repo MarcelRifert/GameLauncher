@@ -32,6 +32,10 @@ namespace GameLauncher
         {
             get { return _Titel; }
         }
+        public DateTime InstallationsDatum
+        {
+            get { return _InstallationsDatum; }
+        }
         public string Pfad
         {
             get { return _Pfad; }
